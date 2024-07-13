@@ -1,0 +1,9 @@
+# Class name
+X9C103S        KEYWORD1
+
+# Methods
+initializePot       KEYWORD2
+setResistance       KEYWORD2
+increaseResistance  KEYWORD2
+decreaseResistance  KEYWORD2
+getResistance       KEYWORD2
