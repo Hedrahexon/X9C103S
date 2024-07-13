@@ -15,13 +15,14 @@ X9C103S is a light Arduino library to control X9C103S digital potentiometers. Th
 
 #### Method I
 
-1. Download the latest zip file
-2. Go to Arduino IDE
-3. Click on 'Sketch'
-4. Click on 'Include Library'
-5. Click on 'Add .ZIP Library...'
-6. Browse to the location of the zip file
-7. Click on the zip file
+1. Download the latest release from the [GitHub releases page](https://github.com/yourusername/X9C103S/releases).
+2. Extract the downloaded ZIP file.
+3. Go to Arduino IDE
+4. Click on 'Sketch'
+5. Click on 'Include Library'
+6. Click on 'Add .ZIP Library...'
+7. Browse to the location of the zip file
+8. Click on the zip file
 
 #### Method II
 
