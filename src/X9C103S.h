@@ -10,7 +10,9 @@ public:
     void setResistance(int value);
     void increaseResistance(int value);
     void decreaseResistance(int value);
-    int getResistance(); // Getter for the private variable
+    void setToHighest();
+    void setToLowest();
+    int getResistance();
 
 private:
     int _inc_pin;
