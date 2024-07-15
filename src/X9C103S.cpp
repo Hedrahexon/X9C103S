@@ -11,7 +11,7 @@ void X9C103S::initializePot() {
     pinMode(_ud_pin, OUTPUT);
     pinMode(_cs_pin, OUTPUT);
     digitalWrite(_cs_pin, HIGH);  // Ensure initial state is HIGH
-    _resistance = 0;
+    _resistance = 1;
 }
 
 void X9C103S::setResistance(int value) {
@@ -77,6 +77,36 @@ void X9C103S::decreaseResistance(int value) {
             _resistance += 100;
         }
     }
+}
+
+void X9C103S::setToHighest(){
+    if (_resistance != 100) {
+		int pulses = 100 - _resistance
+		digitalWrite(_ud_pin, HIGH);  // Set direction to increment
+	    digitalWrite(_cs_pin, LOW);  // Enable the potentiometer
+		for (int i = 0; i < pulses; i++) {
+	        digitalWrite(_inc_pin, LOW);
+    	    delay(1);
+        	digitalWrite(_inc_pin, HIGH);
+	        delay(1);
+    	}
+		_resistance = 100
+	}
+}
+
+void X9C103S::setToLowest(){
+    if (_resistance != 1) {
+		int pulses = _resistance - 1
+		digitalWrite(_ud_pin, LOW);  // Set direction to decrement
+	    digitalWrite(_cs_pin, LOW);  // Enable the potentiometer
+		for (int i = 0; i < pulses; i++) {
+	        digitalWrite(_inc_pin, LOW);
+    	    delay(1);
+        	digitalWrite(_inc_pin, HIGH);
+	        delay(1);
+    	}
+		_resistance = 1
+	}
 }
 
 int X9C103S::getResistance() {
