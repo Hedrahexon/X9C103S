@@ -7,3 +7,5 @@ setResistance       KEYWORD2
 increaseResistance  KEYWORD2
 decreaseResistance  KEYWORD2
 getResistance       KEYWORD2
+setToHighest        KEYWORD2
+setToLowest         KEYWORD2
