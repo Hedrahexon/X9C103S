@@ -34,7 +34,7 @@ X9C103S is a light Arduino library to control X9C103S digital potentiometers. Th
 
 ### Example Sketches
 
-The library comes with several example sketches to help you get started. You can find these in the `examples` folder. Here are brief descriptions and code snippets for each example:
+The library comes with several example sketches to help you get started. You can find these in the `examples` folder. Here are a few examples with brief descriptions and code snippets.:
 
 #### 1. getResistance.ino
 
@@ -42,24 +42,33 @@ This example demonstrates how to initialize the potentiometer and read its resis
 
 ```cpp
 #include <X9C103S.h>
-
-// Define the pins connected to the X9C103S digital potentiometer
-#define INC_PIN 2
-#define UD_PIN 3
-#define CS_PIN 4
-
-// Create an instance of the X9C103S class
-X9C103S potentiometer(INC_PIN, UD_PIN, CS_PIN);
-
 void setup() {
-  Serial.begin(9600); // Initialize serial communication for debugging
-  potentiometer.initializePot(); // Initialize the potentiometer
+  Serial.begin(9600);
+  X9C103S pot1(6, 7, 8) //X9C103S digital potentiometer connected with inc pin to pin 6 ud pin to pin 7 and cs pin to pin 8. Change pin numbers as nessary.
+  pot1.initializePot()
 }
 
 void loop() {
-  // Set the resistance to a specific value
-  potentiometer.setResistance(50);
-  Serial.print("Resistance set to: ");
-  Serial.println(potentiometer.getResistance());
-  delay(2000);
+  pot1.setResistance(45) //Sets the pot resistance to 50. The number can be any number from 1 to 100 (both included).
+  pot1.increaseResistance(25) //Increases the pot resistance by 10. The resistance is now at the value 70.
+  Serial.write(pot1.getResistance()) //Gets the resistanceof the pot and sends it via serial.
 }
+```
+#### 2. setToHighest.ion
+
+This example demonstrates how to set the potentiometer to its highest value easily.
+
+```cpp
+#include <X9C103S.h>
+void setup() {
+  Serial.begin(9600);
+  X9C103S pot1(6, 7, 8) //X9C103S digital potentiometer connected with inc pin to pin 6 ud pin to pin 7 and cs pin to pin 8. Change pin numbers as nessary.
+  pot1.initializePot()
+}
+
+void loop() {
+  pot1.setResistance(45) //Sets the pot resistance to 50. The number can be any number from 1 to 100 (both included).
+  pot1.setToHighest() //Sets the pot resistance to highest value(100).
+  Serial.write(pot1.getResistance()) //Gets the resistanceof the pot and sends it via serial(Should be 100).
+}
+```
