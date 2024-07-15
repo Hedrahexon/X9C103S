@@ -15,7 +15,7 @@ X9C103S is a light Arduino library to control X9C103S digital potentiometers. Th
 
 #### Method I
 
-1. Download the latest release from the [GitHub releases page](https://github.com/yourusername/X9C103S/releases).
+1. Download the latest release from the [GitHub releases page](https://github.com/Hedrahexon/X9C103S/releases).
 2. Extract the downloaded ZIP file.
 3. Go to Arduino IDE
 4. Click on 'Sketch'
@@ -26,7 +26,7 @@ X9C103S is a light Arduino library to control X9C103S digital potentiometers. Th
 
 #### Method II
 
-1. Download the latest release from the [GitHub releases page](https://github.com/yourusername/X9C103S/releases).
+1. Download the latest release from the [GitHub releases page](https://github.com/Hedrahexon/X9C103S/releases).
 2. Extract the downloaded ZIP file.
 3. Move the extracted folder to your Arduino libraries directory (`~/Documents/Arduino/libraries` on Windows and macOS, `~/Arduino/libraries` on Linux).
 
