@@ -1,7 +1,9 @@
+//This example shows how to use the 'setToHighest()' method.
+
 #include <X9C103S.h>
 void setup() {
   Serial.begin(9600);
-  X9C103S pot1(6, 7, 8) //X9C103S digital potentiometer connected with inc pin to pin 6 ud pin to pin 7 and cs pin to pin 8. Change pin numbers as nessary.
+  X9C103S pot1(6, 7, 8) //X9C103S digital potentiometer connected to the Arduino with inc pin to pin 6 ud pin to pin 7 and cs pin to pin 8. Change pin numbers as nessary.
   pot1.initializePot()
 }
 
