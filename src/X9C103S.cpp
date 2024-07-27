@@ -23,12 +23,12 @@ void X9C103S::setResistance(int value) {
         if (_value > 100) {
             _value = 100;
         }
-        int diff = _value - _resistance
+        int diff = _value - _resistance;
 
 		if (diff > 0) {
         	digitalWrite(_ud_pin, HIGH);  // Set direction to increment
 		} else {
-			diff *= -1
+			diff *= -1;
 	        digitalWrite(_ud_pin, LOW);  // Set direction to decrement
 		}
         digitalWrite(_cs_pin, LOW);  // Enable the potentiometer
@@ -81,7 +81,7 @@ void X9C103S::decreaseResistance(int value) {
 
 void X9C103S::setToHighest(){
     if (_resistance != 100) {
-		int pulses = 100 - _resistance
+		int pulses = 100 - _resistance;
 		digitalWrite(_ud_pin, HIGH);  // Set direction to increment
 	    digitalWrite(_cs_pin, LOW);  // Enable the potentiometer
 		for (int i = 0; i < pulses; i++) {
@@ -90,13 +90,13 @@ void X9C103S::setToHighest(){
         	digitalWrite(_inc_pin, HIGH);
 	        delay(1);
     	}
-		_resistance = 100
+		_resistance = 100;
 	}
 }
 
 void X9C103S::setToLowest(){
     if (_resistance != 1) {
-		int pulses = _resistance - 1
+		int pulses = _resistance - 1;
 		digitalWrite(_ud_pin, LOW);  // Set direction to decrement
 	    digitalWrite(_cs_pin, LOW);  // Enable the potentiometer
 		for (int i = 0; i < pulses; i++) {
@@ -105,7 +105,7 @@ void X9C103S::setToLowest(){
         	digitalWrite(_inc_pin, HIGH);
 	        delay(1);
     	}
-		_resistance = 1
+		_resistance = 1;
 	}
 }
 
