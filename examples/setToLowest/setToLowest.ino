@@ -8,7 +8,7 @@ void setup() {
 }
 
 void loop() {
-  pot1.setResistance(45) //Sets the pot resistance to 50. The number can be any number from 1 to 100 (both included).
-  pot1.setToLowest() //Sets the pot resistance to lowest value(1).
-  Serial.write(pot1.getResistance()) //Gets the resistanceof the pot and sends it via serial(Should be 1).
+  pot1.setResistance(45); //Sets the pot resistance to 50. The number can be any number from 1 to 100 (both included).
+  pot1.setToLowest(); //Sets the pot resistance to lowest value(1).
+  Serial.write(pot1.getResistance()); //Gets the resistance of the pot and sends it via serial (Should be 1).
 }
