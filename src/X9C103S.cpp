@@ -6,12 +6,25 @@ X9C103S::X9C103S(int inc_pin, int ud_pin, int cs_pin) {
     _cs_pin = cs_pin;
 }
 
-void X9C103S::initializePot() {
-    pinMode(_inc_pin, OUTPUT);
-    pinMode(_ud_pin, OUTPUT);
-    pinMode(_cs_pin, OUTPUT);
-    digitalWrite(_cs_pin, HIGH);  // Ensure initial state is HIGH
-    _resistance = 1;
+void X9C103S::initializePot()
+{
+	pinMode(_inc_pin, OUTPUT);
+	pinMode(_ud_pin, OUTPUT);
+	pinMode(_cs_pin, OUTPUT);
+	digitalWrite(_cs_pin, HIGH);
+	_resistance = 1;
+
+	digitalWrite(_ud_pin, LOW);
+	digitalWrite(_cs_pin, LOW);
+
+	for (uint8_t i = 0; i < 101; i++)
+	{
+    	digitalWrite(_inc_pin, LOW);
+	    delay(1);
+    	digitalWrite(_inc_pin, HIGH);
+	    delay(1);
+	}
+	digitalWrite(_cs_pin, HIGH);
 }
 
 void X9C103S::setResistance(int value) {
@@ -81,31 +94,26 @@ void X9C103S::decreaseResistance(int value) {
 
 void X9C103S::setToHighest(){
     if (_resistance != 100) {
-		int pulses = 100 - _resistance;
-		digitalWrite(_ud_pin, HIGH);  // Set direction to increment
-	    digitalWrite(_cs_pin, LOW);  // Enable the potentiometer
-		for (int i = 0; i < pulses; i++) {
-	        digitalWrite(_inc_pin, LOW);
-    	    delay(1);
+	int pulses = 100 - _resistance;
+	digitalWrite(_ud_pin, HIGH);  // Set direction to increment
+	digitalWrite(_cs_pin, LOW);  // Enable the potentiometer
+	for (int i = 0; i < pulses; i++) {
+		digitalWrite(_inc_pin, LOW);
+    	    	delay(1);
         	digitalWrite(_inc_pin, HIGH);
-	        delay(1);
+	       	delay(1);
     	}
-		_resistance = 100;
-	}
+	_resistance = 100;
+    }
 }
 
 void X9C103S::setToLowest(){
-    if (_resistance != 1) {
-		int pulses = _resistance - 1;
-		digitalWrite(_ud_pin, LOW);  // Set direction to decrement
-	    digitalWrite(_cs_pin, LOW);  // Enable the potentiometer
-		for (int i = 0; i < pulses; i++) {
-	        digitalWrite(_inc_pin, LOW);
-    	    delay(1);
-        	digitalWrite(_inc_pin, HIGH);
-	        delay(1);
-    	}
-		_resistance = 1;
+    for (uint8_t i = 0; i < 101; i++)
+	{
+    	digitalWrite(_inc_pin, LOW);
+	    delay(1);
+    	digitalWrite(_inc_pin, HIGH);
+	    delay(1);
 	}
 }
 
