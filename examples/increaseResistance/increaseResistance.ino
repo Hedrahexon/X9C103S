@@ -1,9 +1,9 @@
 //This example shows how to use the 'increaseResistance()' method.
 
 #include <X9C103S.h>
+X9C103S pot1(6, 7, 8); //X9C103S digital potentiometer connected to the Arduino with inc pin to pin 6 ud pin to your pin 7 and cs pin to pin 8. Change pin numbers as necessary.
 void setup() {
   Serial.begin(9600);
-  X9C103S pot1(6, 7, 8); //X9C103S digital potentiometer connected to the Arduino with inc pin to pin 6 ud pin to pin 7 and cs pin to pin 8. Change pin numbers as nessary.
   pot1.initializePot();
 }
 
