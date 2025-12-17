@@ -4,11 +4,11 @@
 #define POT2_PIN A2;
 
 #include <X9C103S.h>
+X9C103S pot1(1, 2, 3);
+X9C103S pot2(4, 5, 6);
+X9C103S pot3(7, 8, 9);
 void setup() {
   Serial.begin(9600);
-  X9C103S pot1(1, 2, 3);
-  X9C103S pot2(4, 5, 6);
-  X9C103S pot3(7, 8, 9);
   pot1.initializePot();
   pot2.initializePot();
   pot3.initializePot();
